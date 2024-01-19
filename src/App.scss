@@ -1,0 +1,67 @@
+@import "./index.scss";
+
+@mixin flexer($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+body {
+  @include flexer(row);
+  height: 100vh;
+  width: 100vw;
+}
+
+.inputfield {
+  padding: 15px;
+  border: 1px solid black;
+  border-radius: 4px;
+  width: 500px;
+}
+
+button {
+  width: 140px;
+  border-radius: 4px;
+  padding: 5px 10px;
+  color: white;
+  background: black;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+}
+
+.label-filed {
+  @include flexer(column);
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+  input {
+    margin-bottom: 10px;
+    width: 100%;
+    border-radius: 20px;
+    padding: 4px;
+    outline: none;
+    border: 1px solid black;
+  }
+}
+
+.error {
+
+  h2 {
+
+    font-size: 0.7rem;
+    display: none;
+    color: red;
+    font-weight: 200;
+    margin: 10px 0;
+  }
+}
+
+input:focus {
+  border: 2px solid red;
+}
+
+
+.label-filed:invalid~ .error h2{
+  display:block;
+}
